@@ -1,0 +1,209 @@
+/* Tổng thể container */
+.pdf-viewer-container {
+    display: flex;
+    background: #f8f9fa;
+  }
+  
+  /* Sidebar Thumbnail */
+  .pdf-thumbnails {
+    width: 220px;
+    overflow-y: auto; /* Chỉ scroll phần thumbnail */
+    background: #ffffff;
+    padding: 10px;
+    border-right: 2px solid #ddd;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px; /* Khoảng cách giữa các thumbnail */
+  }
+  
+  /* Mỗi Thumbnail */
+  .thumbnail {
+    position: relative;
+    cursor: pointer;
+    width: 180px; /* Độ rộng thumbnail */
+    height: 200px; /* Chiều cao để đảm bảo tỷ lệ */
+    padding: 5px;
+    border: 2px solid transparent;
+    border-radius: 8px;
+    transition: 0.3s ease-in-out;
+    background: #f1f1f1;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  
+  .thumbnail img {
+    max-width: 90%; /* Hạn chế ảnh to quá */
+    max-height: 90%;
+    object-fit: contain; /* Đảm bảo ảnh vừa khung */
+    border-radius: 5px;
+  }
+  
+  .thumbnail:hover {
+    border-color: #007bff;
+    box-shadow: 0 0 10px rgba(0, 123, 255, 0.3);
+  }
+  
+  .thumbnail.active {
+    border-color: #007bff;
+    box-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
+    background: #e7f1ff;
+  }
+  
+  /* Số trang hiển thị trên thumbnail */
+  .thumbnail-label {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    background: red;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 2px 6px;
+    border-radius: 5px;
+  }
+  
+  /* Nội dung PDF */
+  .pdf-content {
+    position: relative;
+    border: 1px solid #ddd;
+    padding: 10px;
+    width: calc(100% - 350px);
+  }
+  
+  .signature-box {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px dashed #007bff;
+    background: rgba(0, 0, 255, 0.1);
+    cursor: grab;
+  }
+  
+  .signature-img {
+    width: 100%;
+    height: 100%;
+  }
+  
+  .signature-log {
+    background: #f8f9fa;
+    padding: 10px;
+    margin-top: 10px;
+    font-size: 12px;
+    border-radius: 5px;
+    height: 100vh;
+    width: 350px;
+    overflow-y: auto;
+  }
+  
+  /* Toolbar */
+  .toolbar {
+    display: flex;
+    align-items: center;
+    background: #007bff;
+    color: white;
+    padding: 5px;
+    width: 100%;
+    justify-content: flex-start;
+    gap: 10px;
+  }
+  
+  /* Zoom Controls */
+  .zoom-container {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  
+  .zoom-container input {
+    width: 80px;
+    text-align: center;
+  }
+  
+  /* Ẩn thanh cuộn trên Chrome, Edge */
+  .pdf-thumbnails::-webkit-scrollbar {
+    width: 6px;
+  }
+  
+  .pdf-thumbnails::-webkit-scrollbar-thumb {
+    background-color: #007bff;
+    border-radius: 10px;
+  }
+  
+  .pdf-thumbnails::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+  
+  /* Signature List */
+  .signature-list {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .signature-item {
+    cursor: pointer;
+    padding: 8px;
+    border: 0;
+    text-align: center;
+    border-radius: 8px;
+    transition: all 0.2s;
+  }
+  
+  .signature-item img {
+    width: 60px;
+    height: auto;
+    border-radius: 4px;
+  }
+  
+  .signature-item:hover,
+  .signature-item.selected {
+    border-color: #007bff;
+    background: #f0f8ff;
+  }
+  
+  .signature-overlay {
+    position: absolute;
+    bottom: 50px;
+    right: 50px;
+    width: 100px;
+    height: auto;
+    opacity: 0.8;
+  }
+
+  .signature-list {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+  }
+  
+  .signature-item {
+    cursor: pointer;
+    border: none;
+    padding: 5px;
+    text-align: center;
+  }
+  
+  .signature-item.selected {
+    border-color: blue;
+  }
+  
+  .signature-final {
+    position: absolute;
+    width: 80px;
+    cursor: grab;
+    z-index: 1000;
+  }
+
+  .signature-box.selected {
+    border: 2px dashed blue !important;
+  }
+
+  .react-draggable{
+    z-index: 10;
+  }
